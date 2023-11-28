@@ -60,6 +60,8 @@ public class HomeController : Controller
         return View();
     }
 
+  
+
     public IActionResult ActualizarPerfil(string Nombre, string Apellido, string Email, string Contrasena, int Telefono, string FotoPerfil)
     {
         BD.EditarPerfil( Nombre,  Apellido,  Email,  Contrasena,  Telefono, FotoPerfil);
@@ -91,6 +93,12 @@ public class HomeController : Controller
     {
         ViewBag.Filtros = BD.BuscarCasa( Nombre,  Direccion,  Precio,  Pileta,  Parrilla,  CantAmb,  Balcon);
         return ViewBag.Filtros;
+    }
+
+    public Favorito AjaxFav(int IDFavoritos, int IDUsuario, int IDCasa)
+    {
+        ViewBag.CasaLikeada = BD.GuardarFavoritos(IDFavoritos, IDCasa);
+        return ViewBag.CasaLikeada;
     }
         
 

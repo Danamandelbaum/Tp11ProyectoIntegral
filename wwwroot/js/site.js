@@ -2,6 +2,8 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+
 function IniciarSesion(Email, Contraseña)
 {
      $.ajax(
@@ -48,4 +50,30 @@ $(document).ready(function() {
     });
   
   });
+
+  function CambioDeColor(casa)
+  {  
+    
+  }
+
+  function CambioDeColor(idCasa) {
+    const ks = $('#casa_'+casa);
+ 
+    ks.attr("src","/Imagenes/corarojo.webp");
+  
+    $.ajax({
+      url: '/Home/GuardarCasaFavorita', 
+      method: 'POST',
+      data: { IDCasa: idCasa },
+      success: function (data) {
+        console.log("Casa guardada como favorita");
+      },
+      error: function (error) {
+        console.error("Error al guardar la casa: ", error);
+      }
+    });
+  }
+  
+
+  
 
